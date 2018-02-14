@@ -42,12 +42,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
   
-  -#Kyle edit
-  -#def sort
-    -#@movie = Movie.find params[:id]
-    -#@movie = Movie.sort
-    
-  -#end
+
  
 
 end
