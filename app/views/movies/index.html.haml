@@ -4,7 +4,7 @@
 %table#movies
   %thead
     %tr
-      %th Movie Title
+      %th Kyle Title -# %th= link_to "Movie Title", movie_path(movie)
       %th Rating
       %th Release Date
       %th More Info
@@ -16,4 +16,4 @@
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
 
-= link_to 'Add new movie', new_movie_path
+= link_to 'Kyle Add new movie', new_movie_path
