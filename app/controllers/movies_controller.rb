@@ -46,25 +46,23 @@ class MoviesController < ApplicationController
   def sort_title
   
     
-    for i in 0..sorted_movies.length - 1
+    for i in 0..Movie.length - 1
       j = i + 1
-      for j in j..sorted_movies.length - 1
-        element1 = sorted_movies[i]
-        element2 = sorted_movies[j]
+      for j in j..Movie.length - 1
+        element1 = Movie.find(i)
+        element2 = Movie.find(j)
         if (element1.title < element2.title)
-          sorted_movies[i] = element2
-          sorted_movies[j] = element1
+          Movie[i] = element2
+          Movie[j] = element1
         end
       end
     end
     
-    element1 = Movie.find(i)
-    element2 = Movie.find(j)
-    
     redirect_to movies_path
     
   end
- 
+
+   
   def sort_date
   
     sorted_movies = Movie
@@ -80,13 +78,10 @@ class MoviesController < ApplicationController
         end
       end
     end
-
-    Movie = sorted_movies
     
     redirect_to movies_path
     
   end
-  
   
   def sort_test
     redirect_to movies_path
