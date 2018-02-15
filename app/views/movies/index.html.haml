@@ -4,7 +4,7 @@
 %table#movies
   %thead
     %tr
-      %th= button_to 'Movie Title', movies_path, :method => :sort_test
+      %th= button_to 'Movie Title', movies_path, :method => :sort_test, :confirm => 'Are you sure?'
       %th Rating
       %th= link_to 'Release Date', movies_path
       %th More Info
