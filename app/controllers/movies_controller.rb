@@ -47,6 +47,8 @@ class MoviesController < ApplicationController
     @movie1 = Movie.find(1)
     @movie2 = Movie.find(2)
     Movie.find(1).id = Movie.find(2).id
+    
+    redirect_to movies_path
   end
 
 
