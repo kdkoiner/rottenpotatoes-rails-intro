@@ -43,7 +43,7 @@ class MoviesController < ApplicationController
   end
 
   def sort_test
-    redirect_to movies_path
+    @movies = Movie.all
   end
 
 
