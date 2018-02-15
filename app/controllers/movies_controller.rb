@@ -43,7 +43,7 @@ class MoviesController < ApplicationController
   end
 
   def sort_test
-    @movies = Movie.all
+    @movies = Movie.reverse
   end
 
 
