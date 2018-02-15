@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
   
-  def sort
+  def sort_title
   
     
     redirect_to movies_path
