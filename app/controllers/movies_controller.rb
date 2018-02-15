@@ -49,7 +49,7 @@ class MoviesController < ApplicationController
     @movie2 = Movie.find(2)
     @movies[1], @movies[2] = @movie2, @movie1
     
-    redirect_to movies_path
+    redirect_to movie_path(@movie1)
   end
 
 
