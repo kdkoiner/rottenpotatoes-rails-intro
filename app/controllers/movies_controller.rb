@@ -41,10 +41,10 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-  
+
+    
   def sort_title
   
-    sorted_movies = Movie
     
     for i in 0..sorted_movies.length - 1
       j = i + 1
@@ -57,8 +57,9 @@ class MoviesController < ApplicationController
         end
       end
     end
-
-    Movie = sorted_movies
+    
+    element1 = Movie.find(i)
+    element2 = Movie.find(j)
     
     redirect_to movies_path
     
@@ -85,6 +86,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
     
   end
+  
   
   def sort_test
     redirect_to movies_path
