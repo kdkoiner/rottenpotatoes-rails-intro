@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :movies
   
-  get 'movies/sort_test' => 'movies#sort_test', as: :sort_test_movie
+  
   
   # Example resource route with options:
   #   resources :products do
