@@ -4,9 +4,9 @@
 %table#movies
   %thead
     %tr
-      %th= button_to 'Movie Title', {controller: :movies, action: :sort_title, id: movie["id"]}, :method => :sort_title
+      %th= link_to 'Movie Title', :action => :sort_title
       %th Rating
-      %th= button_to 'Release Date', {controller: :movies, action: :sort_date, id: movie["id"]}, :method => :sort_date
+      %th= link_to 'Release Date', :action => :sort_date
       %th More Info
   %tbody
     - @movies.each do |movie|
