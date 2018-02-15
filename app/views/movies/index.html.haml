@@ -6,7 +6,7 @@
     %tr
       %th= link_to 'Movie Title', :controller => MoviesController, :method => :sort_test
       %th Rating
-      %th= link_to 'Release Date', :controller => MoviesController, :method => sort_test
+      %th= link_to 'Release Date', :controller => MoviesController, :method => :sort_test
       %th More Info
   %tbody
     - @movies.each do |movie|
