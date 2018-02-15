@@ -4,7 +4,7 @@
 %table#movies
   %thead
     %tr
-      %th Movie Title
+      %th= button_to 'Movie Title', movies_path, :action => sort_test
       %th Rating
       %th Release Date
       %th More Info
