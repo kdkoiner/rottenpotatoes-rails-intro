@@ -46,4 +46,63 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+
+  def sort_title
+  
+    for i in 0..Movie.length - 1
+      j = i + 1
+      for j in j..Movie.length - 1
+        element1 = Movie.find(i)
+        element2 = Movie.find(j)
+        if (element1.title < element2.title)
+          @movie1 = Movie.find(i)
+		  @movie2 = Movie.find(j)
+		  
+		  @movie1.id = element2.id
+		  @movie2.id = element1.id
+		  
+        end
+      end
+    end
+    
+    redirect_to movies_path
+    
+  end
+   
+  def sort_date
+  
+    for i in 0..Movie.length - 1
+      j = i + 1
+      for j in j..Movie.length - 1
+        element1 = Movie.find(i)
+        element2 = Movie.find(j)
+        if (element1.release_date < element2.release_date)
+          Movie[i] = element2
+          Movie[j] = element1
+        end
+      end
+    end
+    
+    redirect_to movies_path
+    
+  end
+  
+  def sort_id
+  
+    for i in 0..Movie.length - 1
+      j = i + 1
+      for j in j..Movie.length - 1
+        element1 = Movie.find(i)
+        element2 = Movie.find(j)
+        if (element1.release_date < element2.release_date)
+          Movie[i].id, Movie[j].id = Movie[j].id, Movie[i].id
+        end
+      end
+    end
+    
+    redirect_to movies_path
+    
+  end
+
+
 end
