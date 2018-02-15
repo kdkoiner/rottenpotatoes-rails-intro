@@ -46,7 +46,7 @@ class MoviesController < ApplicationController
     
     @movie1 = Movie.find(1)
     @movie2 = Movie.find(2)
-    @movie1, @movie2 = @movie2, @movie1
+    Movie.find(1).id = Movie.find(2).id
   end
 
 
