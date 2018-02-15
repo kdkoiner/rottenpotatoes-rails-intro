@@ -47,8 +47,20 @@ class MoviesController < ApplicationController
     @movie = Movie.find params[:id]
     sorted_movies = @movie
     
-    @movie.sort do |a, b| b.title <=> a.title end
+    for i in 0..sorted_movies.length - 1
+      j = i + 1
+      for j in j..sorted_movies.length - 1
+        element1 = sorted_movies[i]
+        element2 = sorted_movies[j]
+        if (element1.title < element2.title)
+          sorted_movies[i] = element2
+          sorted_movies[j] = element1
+        end
+      end
+    end
 
+    @movie = sorted_movies
+    
     redirect_to movies_path
     
   end
@@ -56,7 +68,22 @@ class MoviesController < ApplicationController
   def sort_date
   
     @movie = Movie.find params[:id]
-    @movie = @movie.release_date.sort
+    sorted_movies = @movie
+    
+    for i in 0..sorted_movies.length - 1
+      j = i + 1
+      for j in j..sorted_movies.length - 1
+        element1 = sorted_movies[i]
+        element2 = sorted_movies[j]
+        if (element1.release_date < element2.release_date)
+          sorted_movies[i] = element2
+          sorted_movies[j] = element1
+        end
+      end
+    end
+
+    @movie = sorted_movies
+    
     redirect_to movies_path
     
   end
