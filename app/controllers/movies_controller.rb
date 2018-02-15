@@ -42,11 +42,12 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
   
-  def sort_name
+  def sort_title
   
     @movie = Movie.find params[:id]
     sorted_movies = @movie.title.sort
     @movie = sorted_movies
+    redirect_to movies_path
     
   end
  
@@ -55,6 +56,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find params[:id]
     sorted_movies = @movie.release_date.sort
     @movie = sorted_movies
+    redirect_to movies_path
     
   end
 
