@@ -44,9 +44,10 @@ class MoviesController < ApplicationController
 
   def sort_test
     
+    @movies = Movie.all
     @movie1 = Movie.find(1)
     @movie2 = Movie.find(2)
-    Movie.find(1).id, Movie.find(2).id = 2, 1
+    @movies[1], @movies[2] = @movie2, @movie1
     
     redirect_to movies_path
   end
