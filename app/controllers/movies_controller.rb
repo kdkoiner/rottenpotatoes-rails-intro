@@ -44,8 +44,7 @@ class MoviesController < ApplicationController
   
   def sort_title
   
-    @movie = Movie.find params[:id]
-    sorted_movies = @movie
+    sorted_movies = Movie
     
     for i in 0..sorted_movies.length - 1
       j = i + 1
@@ -59,7 +58,7 @@ class MoviesController < ApplicationController
       end
     end
 
-    @movie = sorted_movies
+    Movie = sorted_movies
     
     redirect_to movies_path
     
@@ -67,8 +66,7 @@ class MoviesController < ApplicationController
  
   def sort_date
   
-    @movie = Movie.find params[:id]
-    sorted_movies = @movie
+    sorted_movies = Movie
     
     for i in 0..sorted_movies.length - 1
       j = i + 1
@@ -82,7 +80,7 @@ class MoviesController < ApplicationController
       end
     end
 
-    @movie = sorted_movies
+    Movie = sorted_movies
     
     redirect_to movies_path
     
