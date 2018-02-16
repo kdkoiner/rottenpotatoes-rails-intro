@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
    
     
     @movies = Movie.all
-    @movies = @movies.sort_by{ |m| m.title }
+    
   end
 
   def new
@@ -44,17 +44,10 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-
+  
   def sort_test
     
-    @movies = Movie.all
-    @movie1 = Movie.find(1)
-    @movie2 = Movie.find(2)
-    @movies[1], @movies[2] = @movie2, @movie1
-    
-    @movies.order(:title)
-    
-    redirect_to movie_path(@movies.find(2))
+    @movies = @movies.sort_by{ |m| m.title }
   end
 
 
