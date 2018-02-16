@@ -49,6 +49,8 @@ class MoviesController < ApplicationController
     @movie2 = Movie.find(2)
     @movies[1], @movies[2] = @movie2, @movie1
     
+    @movies.order(:title)
+    
     redirect_to movie_path(@movies.find(2))
   end
 
