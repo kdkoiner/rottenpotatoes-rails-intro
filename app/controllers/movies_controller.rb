@@ -14,7 +14,10 @@ class MoviesController < ApplicationController
    
     
     @movies = Movie.all
-    
+    @sort = params[:sort]
+    if @sort == 'title'
+       @movies = @movies.sort_by{ |m| m.title }
+    end
   end
 
   def new
@@ -46,7 +49,7 @@ class MoviesController < ApplicationController
   end
   
   def sort_test
-    
+    @movies = Movie.all
     @movies = @movies.sort_by{ |m| m.title }
   end
 
