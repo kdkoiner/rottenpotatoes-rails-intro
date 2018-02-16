@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
    
     
     @movies = Movie.all
-    @movies.sort_by{ |m| m.title}
+    @movies.sort_by{ |m| m.title }
   end
 
   def new
