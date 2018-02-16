@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
    
     
     @movies = Movie.all
-    @movies.sort! { |a,b| a.title.downcase <=> b.title.downcase }
+    @movies.sort_by{ |m| m.title}
   end
 
   def new
