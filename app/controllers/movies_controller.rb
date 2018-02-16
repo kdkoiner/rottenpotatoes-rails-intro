@@ -12,8 +12,8 @@ class MoviesController < ApplicationController
 
   def index
     @sort = params[:sort]
-    @movies = Movie.all.sort_by('title')
-
+    @movies = Movie.find(:all)
+    @movies.sort! { |a,b| a.name.downcase <=> b.name.downcase }
     
   end
 
