@@ -14,11 +14,11 @@ class MoviesController < ApplicationController
    
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
     @selected_ratings = params[:ratings]
-    @ratings_array = @selected_ratings.keys
+    
     @sort = params[:sort]
     @movies = Movie.all
     
-    @movies = Movie.where(:rating => ['R', 'PG'])
+    @movies = Movie.where(:rating => @selected_ratings)
     
     if @sort == 'title'
       @movies = @movies.sort_by{ |m| m.title }
