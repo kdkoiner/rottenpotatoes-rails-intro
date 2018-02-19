@@ -16,6 +16,8 @@ class MoviesController < ApplicationController
     @sort = params[:sort]
     @movies = Movie.all
     
+    @movies = Movie.where(:rating => ['R', 'PG'])
+    
     if @sort == 'title'
       @movies = @movies.sort_by{ |m| m.title }
     end
