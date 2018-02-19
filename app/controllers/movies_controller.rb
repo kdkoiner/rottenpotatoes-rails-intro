@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
   def index
    
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
-    @rat_hash_hash = params[:rati    @rat_val = #{@rat_hash['G']}
+    @rat_hash_hash = params[:rati    @rat_val = {@rat_hash['G']}
 ngs]
     @rat_va_hashl = @rat_hash[1]
     
