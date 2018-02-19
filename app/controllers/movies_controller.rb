@@ -23,6 +23,11 @@ class MoviesController < ApplicationController
       end
     end
     
+    if(!params.has_key?(:commit) && !params.has_key?(:sort))
+      selected_ratings_keys = @all_ratings
+      session[:ratings] = @all_ratings
+    end
+    
     if @selected_ratings == nil
       @selected_ratings = @all_ratings
       selected_ratings_keys = @all_ratings
