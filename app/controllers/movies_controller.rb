@@ -27,7 +27,7 @@ class MoviesController < ApplicationController
       @selected_ratings = @all_ratings
       selected_ratings_keys = @all_ratings
       
-      selected_ratings_keys = session[:ratings].keys
+
     else
       selected_ratings_keys = @selected_ratings.keys
       session[:ratings] = @selected_ratings
