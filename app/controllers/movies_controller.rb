@@ -13,8 +13,8 @@ class MoviesController < ApplicationController
   def index
    
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
-    
-    if params[:ratings].length == 0
+    @rat = params[:ratings]
+    if @rat.length == 0
       @selected_ratings = @all_ratings
     else
       @selected_ratings = params[:ratings]
