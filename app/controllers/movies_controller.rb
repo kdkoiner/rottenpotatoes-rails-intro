@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
   def index
    
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
+    @selected_ratings = params[:ratings].keys
     @sort = params[:sort]
     @movies = Movie.all
     
