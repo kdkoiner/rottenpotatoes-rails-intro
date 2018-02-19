@@ -12,10 +12,10 @@ class MoviesController < ApplicationController
 
   def index
    
+    @movies = Movie.all
+    
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
-    
     @selected_ratings = params[:ratings]
-    
     
     if @selected_ratings == {}
       @selected_ratings = @all_ratings
@@ -23,10 +23,11 @@ class MoviesController < ApplicationController
       @selected_ratings = params[:ratings]
     end
     
-    @sort = params[:sort]
-    @movies = Movie.all
+    
     
     @movies = Movie.where(:rating => @all_ratings)
+    
+    @sort = params[:sort]
     
     if @sort == 'title'
       @movies = @movies.sort_by{ |m| m.title }
