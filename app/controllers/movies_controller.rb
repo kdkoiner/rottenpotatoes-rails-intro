@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
     
     @selected_ratings = params[:ratings]
-    @my_keys = @selected_ratings[{G}]
+    
     
     if @selected_ratings == {}
       @selected_ratings = @all_ratings
