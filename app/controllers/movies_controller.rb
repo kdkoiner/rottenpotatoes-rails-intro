@@ -25,7 +25,6 @@ class MoviesController < ApplicationController
     end
     
     
-    
     @movies = Movie.where(:rating => selected_ratings_keys)
     
     @sort = params[:sort]
