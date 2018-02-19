@@ -22,6 +22,7 @@ class MoviesController < ApplicationController
     if params[:sort] == 'release_date'
       @movies = @movies.sort_by{ |m| m.release_date }
     end
+
   end
 
   def new
