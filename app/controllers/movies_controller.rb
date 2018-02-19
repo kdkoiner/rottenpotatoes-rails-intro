@@ -55,6 +55,7 @@ class MoviesController < ApplicationController
   def sort_test
     @movies = Movie.all
     @movies = @movies.sort_by{ |m| m.title }
+    redirect_to movies_path
   end
 
 
