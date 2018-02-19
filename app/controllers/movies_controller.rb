@@ -13,9 +13,11 @@ class MoviesController < ApplicationController
   def index
    
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
-    @rat = params[:ratings]
+    @rat_hash_hash = params[:rati    @rat_val = #{@rat_hash['G']}
+ngs]
+    @rat_va_hashl = @rat_hash[1]
     
-    if @rat == {}
+    if @rat_hash == {}
       @selected_ratings = @all_ratings
     else
       @selected_ratings = params[:ratings]
@@ -85,8 +87,4 @@ class MoviesController < ApplicationController
     @movies = Movie.all
     @movies = @movies.sort_by{ |m| m.release_date }
     
-    redirect_to movies_path
-    
-  end
-
-end
+    re
