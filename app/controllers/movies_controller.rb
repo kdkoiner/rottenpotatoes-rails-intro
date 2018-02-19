@@ -14,9 +14,6 @@ class MoviesController < ApplicationController
    
     @movies = Movie.all
     
-    @all_ratings = ['G', 'PG', 'PG-13', 'R']
-    @selected_ratings = params[:ratings]
-    
     if(!params.has_key?(:ratings) && !params.has_key?(:sort))
       if(session.has_key?(:ratings) || session.has_key?(:sort))
         redirect_to movies_path(:ratings=>session[:ratings], :sort=>session[:sort])
@@ -25,16 +22,26 @@ class MoviesController < ApplicationController
     
     
     
+    @all_ratings = ['G', 'PG', 'PG-13', 'R']
+    @selected_ratings = params[:ratings]    
+    
+    if(!params.has_key?(:commit) && !params.has_key?(:sort))
+      selected_ratings_keys = @all_ratings
+      session[:ratings] = @all_ratings
+    end
+    
     if @selected_ratings == nil
       @selected_ratings = @all_ratings
       selected_ratings_keys = @all_ratings
-    
+      selected_ratings_keys = session[:ratings].keys
     else
       selected_ratings_keys = @selected_ratings.keys
       session[:ratings] = @selected_ratings
     end
     
     @movies = Movie.where(:rating => selected_ratings_keys)
+    
+    
     
     @sort = params.has_key?(:sort) ? (session[:sort] = params[:sort]) : session[:sort]
     
