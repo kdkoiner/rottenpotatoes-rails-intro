@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
     
     if @selected_ratings == nil
       @selected_ratings = @all_ratings
+      selected_ratings_keys = @all_ratings
     else
       selected_ratings_keys = @selected_ratings.keys
     end
