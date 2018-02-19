@@ -14,8 +14,8 @@ class MoviesController < ApplicationController
    
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
     @rat = params[:ratings]
-    @my_keys = @rat.keys
-    if @rat == []
+    
+    if @rat == {}
       @selected_ratings = @all_ratings
     else
       @selected_ratings = params[:ratings]
