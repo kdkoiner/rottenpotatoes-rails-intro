@@ -14,6 +14,7 @@ class MoviesController < ApplicationController
    
     @all_ratings = ['G', 'PG', 'PG-13', 'R']
     @selected_ratings = params[:ratings]
+    @ratings_array = @selected_ratings.keys
     @sort = params[:sort]
     @movies = Movie.all
     
