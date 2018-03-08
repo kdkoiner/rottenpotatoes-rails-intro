@@ -26,9 +26,14 @@ class MoviesController < ApplicationController
     @selected_ratings = params[:ratings]
     
     if @selected_ratings == nil
-      @selected_ratings = @all_ratings
-      selected_ratings_keys = @all_ratings
-      selected_ratings_keys = session[:ratings].keys
+      if(!params.has_key?(:commit) && !params.has_key?(:sort))
+        selected_ratings_keys = Movie.current_ratings.keys
+        session[:ratings] = Movie.current_ratings
+      
+      else
+        selected_ratings_keys = session[:ratings].keys
+      end
+      
     else
       selected_ratings_keys = @selected_ratings.keys
       session[:ratings] = @selected_ratings
@@ -102,5 +107,11 @@ class MoviesController < ApplicationController
     redirect_to movies_path
     
   end
+  
+  def highlight_header(header)
+    params[:sort] == header ? 'hilite' : nil
+  end
+  
+  helper_method :highlight_header
 
 end
