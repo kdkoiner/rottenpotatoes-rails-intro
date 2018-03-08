@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+    
     def self.current_ratings
       	result = {}
       	self.select(:rating).uniq.each do |movie|
